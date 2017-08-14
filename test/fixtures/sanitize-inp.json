@@ -1,0 +1,64 @@
+{
+  "@s/a": {
+    "__deps": {
+      "@t/b": {
+        "__deps": {},
+        "name": "@t/b",
+        "version": "0.0.1",
+        "path": "node_modules/@s/a/node_modules/@t/b/package.json"
+      },
+      "a": {
+        "__deps": {
+          "d": {
+            "__deps": {},
+            "name": "d",
+            "version": "5.0.1",
+            "path": "node_modules/@s/a/node_modules/a/node_modules/d/package.json"
+          },
+          "f": {
+            "__deps": {},
+            "name": "foo",
+            "version": "1.0.0",
+            "path": "node_modules/@s/a/node_modules/a/node_modules/f/package.json"
+          }
+        },
+        "name": "a",
+        "version": "0.0.1",
+        "path": "node_modules/@s/a/node_modules/a/package.json"
+      },
+      "b": {
+        "__deps": {},
+        "name": "b",
+        "version": "0.1.0",
+        "path": "node_modules/@s/a/node_modules/b/package.json"
+      }
+    },
+    "name": "@s/a",
+    "version": "0.0.1",
+    "path": "node_modules/@s/a/package.json"
+  },
+  "a": {
+    "__deps": {},
+    "name": "a",
+    "version": "1.0.0",
+    "path": "node_modules/a/package.json"
+  },
+  "b": {
+    "__deps": {},
+    "name": "b",
+    "version": "1.0.0",
+    "path": "node_modules/b/package.json"
+  },
+  "c": {
+    "__deps": {},
+    "name": "c",
+    "version": "1.0.0",
+    "path": "node_modules/c/package.json"
+  },
+  "f": {
+    "__deps": {},
+    "name": "foo",
+    "version": "1.0.0",
+    "path": "node_modules/f/package.json"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "package-lock",
+  "version": "1.0.0-0",
+  "description": "(Re-)Build package-lock.json or npm-shrinkwrap.json file from node_modules folder",
+  "keywords": [
+    "json",
+    "lock",
+    "npm",
+    "package",
+    "regenerate",
+    "shrinkwrap"
+  ],
+  "license": "Unlicense",
+  "author": "commenthol <commenthol@gmail.com>",
+  "main": "src/index.js",
+  "bin": {
+    "package-lock": "./bin/package-lock.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "all": "npm run lint && npm test",
+    "lint": "eslint --fix '**/*.js'",
+    "test": "mocha"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ]
+  },
+  "dependencies": {
+    "asyncc": "^2.0.0",
+    "commander": "^2.11.0",
+    "glob": "^7.1.2",
+    "lodash": "^4.17.4",
+    "traverse": "^0.6.6"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.0"
+  }
+}

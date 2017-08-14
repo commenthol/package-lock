@@ -1,0 +1,46 @@
+{
+  "name": "@private/private",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "@s/a": {
+      "version": "0.0.1",
+      "resolved": "https://localhost:4873/s-a/-/s-a-0.0.1.tgz",
+      "integrity": "sha1-Cvzo+ttOJpagZ0W5H1qhxatXIQQ=",
+      "requires": {
+        "@t/b": "0.0.1",
+        "a": "0.0.1",
+        "b": "0.1.0"
+      },
+      "dependencies": {
+        "a": {
+          "version": "0.0.1",
+          "resolved": "https://registry.npmjs.org/a/-/a-0.0.1.tgz",
+          "integrity": "sha1-Cvzo+ttOJpagZ0W5H1qhxatXIQQ=",
+          "requires": {
+            "d": "5.0.1"
+          }
+        }
+      }
+    },
+    "a": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/a/-/a-1.0.0.tgz",
+      "integrity": "sha1-Cvzo+ttOJpagZ0W5H1qhxatXIQQ=",
+      "requires": {
+        "c": "2.0.0"
+      }
+    },
+    "b": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/b/-/b-1.0.0.tgz",
+      "integrity": "sha1-Cvzo+ttOJpagZ0W5H1qhxatXIQQ="
+    },
+    "c": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/c/-/c-1.0.0.tgz",
+      "integrity": "sha1-Cvzo+ttOJpagZ0W5H1qhxatXIQQ="
+    }
+  }
+}
