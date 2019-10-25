@@ -2,8 +2,9 @@
 
 const assert = require('assert')
 const traverse = require('traverse')
-const {relative} = require('path')
-const {compose} = require('asyncc')
+const path = require('path')
+const { compose } = require('asyncc')
+// const { mkdir, touch } = require('shelljs')
 const {
   packagePath,
   findPackages,
@@ -18,37 +19,37 @@ describe('#utils', function () {
     it('should parse package path', function () {
       const path = 'node_modules/debug/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, ['debug'])
+      assert.deepStrictEqual(res, ['debug'])
     })
     it('should parse scoped package path', function () {
       const path = 'node_modules/@my/debug/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, ['@my/debug'])
+      assert.deepStrictEqual(res, ['@my/debug'])
     })
     it('should ignore package path with package depth 2', function () {
       const path = 'node_modules/debug/example/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, [])
+      assert.deepStrictEqual(res, [])
     })
     it('should ignore scoped package path with package depth 3', function () {
       const path = 'node_modules/@my/debug/example/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, [])
+      assert.deepStrictEqual(res, [])
     })
     it('should parse package path with submodule', function () {
       const path = 'node_modules/debug/node_modules/semver/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, ['debug', 'semver'])
+      assert.deepStrictEqual(res, ['debug', 'semver'])
     })
     it('should parse scoped package path with submodule', function () {
       const path = 'node_modules/@my/debug/node_modules/semver/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, ['@my/debug', 'semver'])
+      assert.deepStrictEqual(res, ['@my/debug', 'semver'])
     })
     it('should parse scoped package path with scoped submodule', function () {
       const path = 'node_modules/@my/debug/node_modules/@other/semver/package.json'
       const res = packagePath(path)
-      assert.deepEqual(res, ['@my/debug', '@other/semver'])
+      assert.deepStrictEqual(res, ['@my/debug', '@other/semver'])
     })
   })
 
@@ -66,10 +67,17 @@ describe('#utils', function () {
         'node_modules/c/package.json',
         'node_modules/f/package.json'
       ]
+
+      // exp.forEach(filename => {
+      //   const f = path.resolve(__dirname, filename)
+      //   mkdir('-p', path.dirname(f))
+      //   touch(f)
+      // })
+
       findPackages(__dirname, (err, data) => {
         assert.ok(!err, '' + err)
-        const res = data.map((p) => relative(__dirname, p))
-        assert.deepEqual(res, exp)
+        const res = data.map((p) => path.relative(__dirname, p))
+        assert.deepStrictEqual(res, exp)
         done()
       })
     })
@@ -81,7 +89,7 @@ describe('#utils', function () {
       const tree = require('./fixtures/sanitize-inp.json')
       const res = _sanitizeTree(tree)
       // writeJsonSync(`${__dirname}/fixtures/sanitize.json`, res)
-      assert.deepEqual(res, exp)
+      assert.deepStrictEqual(res, exp)
     })
   })
 
@@ -97,11 +105,11 @@ describe('#utils', function () {
         // normalize test paths
         const norm = traverse(tree).map(function () {
           if (this.key === 'path') {
-            this.update(relative(__dirname, this.node))
+            this.update(path.relative(__dirname, this.node))
           }
         })
         // writeJsonSync(`${__dirname}/fixtures/intern.json`, norm)
-        assert.deepEqual(norm, exp)
+        assert.deepStrictEqual(norm, exp)
         done()
       })
     })
@@ -114,8 +122,8 @@ describe('#utils', function () {
     })
     it('should read if present', function () {
       const res = readPackageJsonSync(`${__dirname}/..`)
-      assert.equal(typeof res, 'object')
-      assert.equal(typeof res.name, 'string')
+      assert.strictEqual(typeof res, 'object')
+      assert.strictEqual(typeof res.name, 'string')
     })
   })
 })

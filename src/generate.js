@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const {DEPS} = require('./utils')
+const { DEPS } = require('./utils')
 
 const PRIVATE = '@private/private'
 
@@ -8,7 +8,7 @@ function toPackageName (name) {
 }
 
 function genPackageLock (tree, pckg, options) {
-  pckg = Object.assign({name: PRIVATE, version: '1.0.0'}, pckg)
+  pckg = Object.assign({ name: PRIVATE, version: '1.0.0' }, pckg)
   options = options || {}
 
   const convert = (o, level, opts) => {
@@ -47,7 +47,7 @@ function genPackageLock (tree, pckg, options) {
     if (o[DEPS]) {
       t.requires = {}
       Object.keys(o[DEPS]).sort().forEach((k) => {
-        const {name, version} = o[DEPS][k]
+        const { name, version } = o[DEPS][k]
         if (k === name) {
           t.requires[name] = version
         }
@@ -80,7 +80,7 @@ function genPackageLock (tree, pckg, options) {
 }
 
 function genPackageJson (tree, pckg) {
-  pckg = Object.assign({name: PRIVATE, version: '1.0.0'}, pckg)
+  pckg = Object.assign({ name: PRIVATE, version: '1.0.0' }, pckg)
 
   Object.keys(tree).forEach((name) => {
     const hasDep = _.get(pckg, ['dependencies', name]) ||

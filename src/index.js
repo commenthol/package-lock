@@ -1,4 +1,4 @@
-const {compose} = require('asyncc')
+const { compose } = require('asyncc')
 const {
   findPackages,
   buildTree,
@@ -32,7 +32,7 @@ function proc (options, cb) {
       cb(err)
       return
     }
-    let pckg = readPackageJsonSync(dirname)
+    const pckg = readPackageJsonSync(dirname)
     const newLock = genPackageLock(tree, pckg, options)
     const newPckg = genPackageJson(tree, pckg)
 

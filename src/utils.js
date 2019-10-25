@@ -1,9 +1,9 @@
 const _ = require('lodash')
 const fs = require('fs')
-const {relative, resolve, sep} = require('path')
+const { relative, resolve, sep } = require('path')
 const glob = require('glob')
 const traverse = require('traverse')
-const {eachLimit} = require('asyncc')
+const { eachLimit } = require('asyncc')
 
 const DEPS = '__deps'
 
@@ -61,7 +61,7 @@ function extract (path, cb) {
     if (!err && pckg) {
       obj = Object.assign(
         _.pick(pckg, ['name', 'version', '_id', '_integrity', '_resolved', '_shasum', '_spec']),
-        {path}
+        { path }
       )
       if (!obj._id) {
         obj._id = `${obj.name}@${obj.version}`
