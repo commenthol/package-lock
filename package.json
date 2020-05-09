@@ -42,7 +42,8 @@
     "asyncc": "^2.0.4",
     "commander": "^5.1.0",
     "glob": "^7.1.6",
-    "lodash": "^4.17.15",
+    "lodash.get": "^4.4.2",
+    "lodash.pick": "^4.4.0",
     "traverse": "^0.6.6"
   },
   "devDependencies": {
